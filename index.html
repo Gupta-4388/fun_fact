@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earth Facts Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 600px;
+        }
+
+        .fact-box {
+            background-color: #2d2d2d;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #fact-text {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        #fact-category {
+            color: #4CAF50;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        #generate-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+
+        #generate-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌍 Earth Facts Generator</h1>
+        <div class="fact-box">
+            <p id="fact-text">Click the button to generate a fact!</p>
+            <p id="fact-category"></p>
+        </div>
+        <button id="generate-btn">Generate Fact</button>
+    </div>
+
+    <script>
+        const earthFacts = {
+            "earthFacts": [
+                {
+                    "id": 1,
+                    "fact": "Earth is the only planet in our solar system not named after a Greek or Roman deity",
+                    "category": "nomenclature"
+                },
+                {
+                    "id": 2,
+                    "fact": "The Earth's core is as hot as the surface of the Sun, approximately 10,000 degrees Fahrenheit",
+                    "category": "geology"
+                },
+                {
+                    "id": 3,
+                    "fact": "Earth's atmosphere is composed of roughly 78% nitrogen and 21% oxygen",
+                    "category": "atmosphere"
+                },
+                {
+                    "id": 4,
+                    "fact": "Earth's magnetic field is gradually weakening, by about 5% every century",
+                    "category": "magnetism"
+                },
+                {
+                    "id": 5,
+                    "fact": "The Earth is not a perfect sphere - it's slightly flattened at the poles and bulging at the equator",
+                    "category": "shape"
+                },
+                {
+                    "id": 6,
+                    "fact": "Earth is the only planet known to have liquid water on its surface",
+                    "category": "uniqueness"
+                },
+                {
+                    "id": 7,
+                    "fact": "The Earth's rotation is gradually slowing down, adding about 1.8 milliseconds to our day every century",
+                    "category": "rotation"
+                },
+                {
+                    "id": 8,
+                    "fact": "Over 80% of Earth's surface is volcanic in origin",
+                    "category": "geology"
+                },
+                {
+                    "id": 9,
+                    "fact": "The highest point on Earth, Mount Everest, is growing by about 4 millimeters each year",
+                    "category": "geography"
+                },
+                {
+                    "id": 10,
+                    "fact": "Earth is the densest planet in the solar system",
+                    "category": "physics"
+                }
+            ]
+        };
+
+        const factText = document.getElementById('fact-text');
+        const factCategory = document.getElementById('fact-category');
+        const generateBtn = document.getElementById('generate-btn');
+
+        function getRandomFact() {
+            const facts = earthFacts.earthFacts;
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            const randomFact = facts[randomIndex];
+            
+            factText.textContent = randomFact.fact;
+            factCategory.textContent = `Category: ${randomFact.category}`;
+        }
+
+        generateBtn.addEventListener('click', getRandomFact);
+
+        // Generate a random fact when the page loads
+        getRandomFact();
+    </script>
+</body>
+</html>
